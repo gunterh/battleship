@@ -1,0 +1,184 @@
+body {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #e0f8cf;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ps2-font {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header {
+}
+
+.page {
+  display: none;
+  max-width: 600px;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+}
+
+.left-panel {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.gameboard {
+  border: 1px solid gray;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: auto repeat(10, 1fr);
+}
+
+.main-container {
+  display: grid;
+  gap: 20px;
+}
+
+.ship {
+  height: 20px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.aircraft-carrier {
+  width: 200px;
+  background: #111111;
+}
+
+.battleship {
+  width: 160px;
+  background: #333333;
+}
+
+.cruiser {
+  width: 120px;
+  background: #555555;
+}
+
+.submarine {
+  width: 120px;
+  background: #777777;
+}
+
+.destroyer {
+  width: 80px;
+  background: #999999;
+}
+
+.cell {
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.cell-header {
+  width: auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+button {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e0f8cf;
+}
+
+.ship-body-left {
+  height: 80%;
+  background-color: black;
+  opacity: 0.8;
+  width: 90%;
+  right: 0;
+  position: absolute;
+  border-radius: 5px 0 0 5px;
+}
+
+.ship-body-right {
+  height: 80%;
+  background-color: black;
+  opacity: 0.8;
+  width: 90%;
+  left: 0;
+  position: absolute;
+  border-radius: 0 5px 5px 0;
+  rotate: 90;
+}
+
+.ship-body-middle {
+  height: 80%;
+  background-color: black;
+  opacity: 0.8;
+  width: 100%;
+}
+
+.ship-body-v-left {
+  height: 90%;
+  background-color: black;
+  opacity: 0.8;
+  width: 80%;
+  bottom: 0;
+  position: absolute;
+  border-radius: 5px 5px 0 0;
+}
+
+.ship-body-v-right {
+  height: 90%;
+  background-color: black;
+  opacity: 0.8;
+  width: 80%;
+  top: 0;
+  position: absolute;
+  border-radius: 0 0 5px 5px;
+}
+
+.ship-body-v-middle {
+  width: 80%;
+  background-color: black;
+  opacity: 0.8;
+  height: 100%;
+}
