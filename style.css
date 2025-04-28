@@ -26,7 +26,7 @@ body {
 }
 
 .container {
-  display: grid;
+  display: flex;
   gap: 20px;
   grid-template-columns: auto 1fr;
   width: 100%;
@@ -40,6 +40,13 @@ body {
   border-radius: 5px;
 }
 
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .gameboard {
   border: 1px solid gray;
   padding-right: 20px;
@@ -47,11 +54,6 @@ body {
   border-radius: 5px;
   display: grid;
   grid-template-columns: auto repeat(10, 1fr);
-}
-
-.main-container {
-  display: grid;
-  gap: 20px;
 }
 
 .ship {

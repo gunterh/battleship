@@ -10,4 +10,4 @@ const renderPage = (page) => {
   }
 };
 
-renderPage(0);
+renderPage(2);
