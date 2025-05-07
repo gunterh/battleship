@@ -1,187 +1,178 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>BattleShip</title>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <title>Battleship Board with Ship Shapes</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      canvas {
+        border: 2px solid #333;
+        width: 80%;
+        height: 80%;
+      }
+    </style>
   </head>
-
   <body>
-    <div class="header">
-      <h1>BattleShip Online</h1>
-    </div>
-    <div class="page">
-      <button onclick="renderPage(1)">Single Player</button>
-      <button class="header">Multiplayer</button>
-    </div>
-    <div class="page">
-      <h2>Single Player</h2>
-      <button onclick="renderPage(2)">Start Game</button>
-    </div>
-    <div class="page">
-      <h2>Place your Ships</h2>
-      <div class="container">
-        <div class="left-panel">
-          <div draggable="true" class="ship aircraft-carrier">
-            Aircraft Carrier
-          </div>
-          <div draggable="true" class="ship battleship">Battleship</div>
-          <div draggable="true" class="ship cruiser">Cruiser</div>
-          <div draggable="true" class="ship submarine">Submarine</div>
-          <div draggable="true" class="ship destroyer">Destroyer</div>
-        </div>
-        <div class="gameboard">
-          <div class="cell-header"></div>
-          <div class="cell-header">1</div>
-          <div class="cell-header">2</div>
-          <div class="cell-header">3</div>
-          <div class="cell-header">4</div>
-          <div class="cell-header">5</div>
-          <div class="cell-header">6</div>
-          <div class="cell-header">7</div>
-          <div class="cell-header">8</div>
-          <div class="cell-header">9</div>
-          <div class="cell-header">10</div>
-          <div class="cell-header">A</div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell">
-            <div class="ship-body-left"></div>
-          </div>
-          <div class="cell">
-            <div class="ship-body-middle"></div>
-          </div>
-          <div class="cell">
-            <div class="ship-body-middle"></div>
-          </div>
-          <div class="cell">
-            <div class="ship-body-right"></div>
-          </div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">B</div>
-          <div class="cell"></div>
-          <div class="cell">
-            <div class="ship-body-v-left"></div>
-          </div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">C</div>
-          <div class="cell"></div>
-          <div class="cell">
-            <div class="ship-body-v-middle"></div>
-          </div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">D</div>
-          <div class="cell"></div>
-          <div class="cell">
-            <div class="ship-body-v-middle"></div>
-          </div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">E</div>
-          <div class="cell"></div>
-          <div class="cell">
-            <div class="ship-body-v-right"></div>
-          </div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">F</div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">G</div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">H</div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">I</div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell-header">J</div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-        </div>
-      </div>
-      <div class="button-group-container">
-        <div class="button-group">
-          <button>Rotate</button>
-          <button>Start</button>
-        </div>
-      </div>
-    </div>
+    <canvas id="battleshipBoard" width="450" height="450"></canvas>
+
+    <script>
+      const canvas = document.getElementById("battleshipBoard");
+      const ctx = canvas.getContext("2d");
+
+      const gridSize = 10;
+      const cellSize = 40;
+      const offset = 40; // Space for labels
+      const ships = [
+        { name: "Carrier", size: 5 },
+        { name: "Battleship", size: 4 },
+        { name: "Cruiser", size: 3 },
+        { name: "Submarine", size: 3 },
+        { name: "Destroyer", size: 2 },
+      ];
+      const board = Array(gridSize)
+        .fill()
+        .map(() => Array(gridSize).fill(0)); // 0 = empty, 1 = ship
+      const shipOrientations = []; // Store ship positions and orientations
+
+      // Function to check if a ship can be placed
+      function canPlaceShip(size, row, col, isHorizontal) {
+        if (isHorizontal) {
+          if (col + size > gridSize) return false;
+          for (let i = 0; i < size; i++) {
+            if (board[row][col + i] !== 0) return false;
+          }
+        } else {
+          if (row + size > gridSize) return false;
+          for (let i = 0; i < size; i++) {
+            if (board[row + i][col] !== 0) return false;
+          }
+        }
+        return true;
+      }
+
+      // Function to place a ship
+      function placeShip(size, shipIndex) {
+        let placed = false;
+        while (!placed) {
+          const isHorizontal = Math.random() < 0.5;
+          const row = Math.floor(Math.random() * gridSize);
+          const col = Math.floor(Math.random() * gridSize);
+          if (canPlaceShip(size, row, col, isHorizontal)) {
+            for (let i = 0; i < size; i++) {
+              if (isHorizontal) {
+                board[row][col + i] = 1;
+              } else {
+                board[row + i][col] = 1;
+              }
+            }
+            shipOrientations.push({ row, col, size, isHorizontal });
+            placed = true;
+          }
+        }
+      }
+
+      // Function to draw a ship
+      function drawShip(row, col, size, isHorizontal) {
+        const x = col * cellSize + offset;
+        const y = row * cellSize + offset;
+        ctx.fillStyle = "#808080"; // Gray for ships
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 1;
+
+        if (isHorizontal) {
+          // Draw ship body (rectangle)
+          ctx.fillRect(x, y + cellSize * 0.25, cellSize * size, cellSize * 0.5);
+          ctx.strokeRect(
+            x,
+            y + cellSize * 0.25,
+            cellSize * size,
+            cellSize * 0.5
+          );
+
+          // Draw bridge (small rectangle)
+          ctx.fillRect(
+            x + cellSize * 0.5,
+            y + cellSize * 0.15,
+            cellSize * 0.5,
+            cellSize * 0.2
+          );
+          ctx.strokeRect(
+            x + cellSize * 0.5,
+            y + cellSize * 0.15,
+            cellSize * 0.5,
+            cellSize * 0.2
+          );
+        } else {
+          // Draw ship body (rectangle)
+          ctx.fillRect(x + cellSize * 0.25, y, cellSize * 0.5, cellSize * size);
+          ctx.strokeRect(
+            x + cellSize * 0.25,
+            y,
+            cellSize * 0.5,
+            cellSize * size
+          );
+
+          // Draw bridge (small rectangle)
+          ctx.fillRect(
+            x + cellSize * 0.15,
+            y + cellSize * 0.5,
+            cellSize * 0.2,
+            cellSize * 0.5
+          );
+          ctx.strokeRect(
+            x + cellSize * 0.15,
+            y + cellSize * 0.5,
+            cellSize * 0.2,
+            cellSize * 0.5
+          );
+        }
+      }
+
+      // Place all ships
+      ships.forEach((ship, index) => placeShip(ship.size, index));
+
+      // Draw the grid
+      ctx.fillStyle = "#4682b4"; // Blue for water
+      ctx.strokeStyle = "#ffffff"; // White borders
+      ctx.lineWidth = 2;
+
+      for (let row = 0; row < gridSize; row++) {
+        for (let col = 0; col < gridSize; col++) {
+          const x = col * cellSize + offset;
+          const y = row * cellSize + offset;
+          ctx.fillRect(x, y, cellSize, cellSize);
+          ctx.strokeRect(x, y, cellSize, cellSize);
+        }
+      }
+
+      // Draw ships
+      shipOrientations.forEach((ship) => {
+        drawShip(ship.row, ship.col, ship.size, ship.isHorizontal);
+      });
+
+      // Draw row labels (1-10)
+      ctx.fillStyle = "#000000";
+      ctx.font = "16px Arial";
+      ctx.textAlign = "center";
+      for (let row = 0; row < gridSize; row++) {
+        const y = row * cellSize + offset + cellSize / 2;
+        ctx.fillText(row + 1, offset / 2, y + 6);
+      }
+
+      // Draw column labels (A-J)
+      const columns = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+      for (let col = 0; col < gridSize; col++) {
+        const x = col * cellSize + offset + cellSize / 2;
+        ctx.fillText(columns[col], x, offset / 2 + 6);
+      }
+    </script>
   </body>
 </html>
